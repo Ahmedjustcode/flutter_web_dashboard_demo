@@ -1,30 +1,33 @@
-name: Sync Code between Repositories
-
+name: Flutter Web
 on:
   push:
     branches:
-      - latest_code
-  workflow_dispatch:  # Add manual trigger
-    inputs:
-      destination-repo:
-        description: 'Destination repository URL'
-        required: true
-
+      - master
 jobs:
-  sync:
-    name: sync code with server repository
+  build:
+    name: Build Web
+    env:
+      my_secret: ${{secrets.COMMIT_SECRET}}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Source Repository
-        uses: actions/checkout@v2
-
-      - name: Push Code to Destination Repository
-        env:
-          PAT_TOKEN: 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
-        run: |
-          git config --global user.email "ahmed@justcodenow.com"
-          git config --global user.name "Ahmedjustcode"
-          git commit -m 'feat: My first feature'
-          git remote add destination https://user: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@github.com/Ahmedjustcode/flutter_web_example.git
-          git push destination test_ci_cd
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'dev'
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release
+      - run: |
+          cd build/web
+          git init
+          # type configurations: your user.email and user.name followed lines 
+          # git config --global user.email your_email 
+          # git config --global user.name your_name 
+          git config --global user.email ahmed@justcodenow.com
+          git config --global user.name Ahmedjustcode
+          git status
+          git remote add origin https://${{secrets.COMMIT_SECRET}}@github.com/Ahmedjustcode/flutter_web_example.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "update"
+          git push origin gh-pages -f
