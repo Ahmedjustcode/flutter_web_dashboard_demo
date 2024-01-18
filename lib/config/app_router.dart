@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_example/features/auth/presentation/auth_screen.dart';
 import 'package:flutter_web_example/features/main/presentation/view/main_screen.dart';
 
 class AppRouter{
@@ -10,6 +11,8 @@ class AppRouter{
     switch(settings.name){
       case MainScreen.route:
         return _materialRoute(const MainScreen());
+      case AuthScreen.route:
+        return _materialRoute(const AuthScreen());
     }
     return null;
   }

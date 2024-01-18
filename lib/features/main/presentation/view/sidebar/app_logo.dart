@@ -6,8 +6,9 @@ import 'package:flutter_web_example/core/app_strings.dart';
 import 'package:flutter_web_example/core/app_text_styles.dart';
 
 class AppLogoWidget extends StatelessWidget {
-  const AppLogoWidget({super.key});
+  const AppLogoWidget({super.key,this.isVertical = false});
 
+  final bool isVertical;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,17 +17,14 @@ class AppLogoWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ColoredBox(
-            color: Colors.red,
-            child: Container(
-              height: 26,
-              width: 26,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(3),
-                color: AppColors.cFFFFFF
-              ), child: SvgPicture.asset(AppImages.appIcon,height: 20,width: 20,),
-            ),
+          Container(
+            height: 26,
+            width: 26,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(3),
+              color: AppColors.cFFFFFF
+            ), child: SvgPicture.asset(AppImages.appIcon,height: 20,width: 20,),
           ),
           const SizedBox(width: 6,),
           Text(AppStrings.dukaan,style: AppTextStyles.latoW800(),)

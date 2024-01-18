@@ -4,12 +4,12 @@ import 'package:flutter_web_example/core/app_colors.dart';
 import 'package:flutter_web_example/core/app_text_styles.dart';
 
 class SidebarListElementWidget extends StatelessWidget {
-   SidebarListElementWidget({super.key, required this.text, required this.icon, required this.isSelected});
+   SidebarListElementWidget({super.key, required this.text, required this.icon, required this.isSelected, required this.onTap});
 
   final String text;
   final String icon;
   final bool isSelected;
-
+  final VoidCallback onTap;
   final ValueNotifier<bool> hoverListenAble = ValueNotifier<bool>(false);
 
   @override
@@ -21,6 +21,7 @@ class SidebarListElementWidget extends StatelessWidget {
             onEnter: (_) => hoverListenAble.value = true,
             onExit: (_) => hoverListenAble.value = false,
             child: GestureDetector(
+              onTap: onTap,
               child: Container(
                 margin: const EdgeInsets.only(bottom: 10),
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 13),

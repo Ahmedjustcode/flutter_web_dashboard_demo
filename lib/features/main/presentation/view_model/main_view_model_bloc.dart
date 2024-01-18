@@ -1,15 +1,20 @@
-import 'dart:async';
-
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'main_view_model_event.dart';
+
 part 'main_view_model_state.dart';
 
 class MainViewModelBloc extends Bloc<MainViewModelEvent, MainViewModelState> {
-  MainViewModelBloc() : super(MainViewModelInitial()) {
-    on<MainViewModelEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  MainViewModelBloc() : super(const MainViewModelInitial(index: 0)) {
+    on<MainViewModeTabChangeEvent>(_onMainViewModeTabChange);
+  }
+
+  void _onMainViewModeTabChange(MainViewModeTabChangeEvent event, Emitter<MainViewModelState> emit) {
+    if (event.index == 0) {
+      emit(MainViewModelDashBoardSelectedState(index: 0));
+    } else if (event.index == 1) {
+      emit(MainViewModelProductSelectedState(index: 1));
+    }
   }
 }
