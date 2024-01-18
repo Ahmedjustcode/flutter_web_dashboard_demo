@@ -23,6 +23,8 @@ jobs:
         env:
           PAT_TOKEN: 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
         run: |
+          git config --global user.email "ahmed@justcodenow.com"
+          git config --global user.name "Ahmedjustcode"
           git commit -m 'feat: My first feature'
           git remote add destination https://user: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@github.com/Ahmedjustcode/flutter_web_example.git
           git push destination test_ci_cd
