@@ -22,5 +22,5 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.PAT }}
         run: |
-          git remote add destination https://github.com/Current-Namaz/mnm-user-beta-web.git
-          git push destination main
+          git remote add destination https://github.com/Ahmedjustcode/flutter_web_example.git
+          git push destination test_ci_cd
