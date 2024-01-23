@@ -13,7 +13,7 @@ class AppButton extends StatelessWidget {
       this.bottomMargin,
       this.leftMargin,
       this.rightMargin,
-      required this.onTap, this.radius});
+      required this.onTap, this.radius, this.height, this.width});
 
   final Color? backgroundColor;
   final Color? textColor;
@@ -24,6 +24,8 @@ class AppButton extends StatelessWidget {
   final double? leftMargin;
   final double? rightMargin;
   final BorderRadius? radius;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,8 @@ class AppButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Container(
-            height: 40,
+            height: height ??40,
+            width: width,
             alignment: Alignment.center,
             child: Text(
               text,

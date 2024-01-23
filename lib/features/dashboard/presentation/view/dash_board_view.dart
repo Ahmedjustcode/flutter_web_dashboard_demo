@@ -38,6 +38,9 @@ class DashBoardViewDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
+                  // Image.network('http://localhost:3000/images/default.png',errorBuilder: (context,widget,stackTrace){
+                  //   return const Icon(Icons.error,size: 60,);
+                  // },),
                   Row(
                     children: [
                       Expanded(

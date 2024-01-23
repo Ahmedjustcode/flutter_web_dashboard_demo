@@ -7,11 +7,14 @@ import 'package:flutter_web_example/di.dart';
 import 'package:flutter_web_example/features/auth/presentation/auth_screen.dart';
 import 'package:flutter_web_example/features/main/presentation/view/main_screen.dart';
 import 'package:flutter_web_example/features/main/presentation/view_model/main_view_model_bloc.dart';
+import 'package:flutter_web_example/features/products/domain/domain/product_entity/product_entity.dart';
 import 'package:flutter_web_example/features/products/presentation/product_view_model/product_view_model_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-
-void main() {
+void main() async{
   registerInstances();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ProductEntityAdapter());
   runApp(const FlutterWebExample());
 
 }

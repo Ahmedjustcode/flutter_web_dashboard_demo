@@ -19,6 +19,7 @@ class AppTextField extends StatelessWidget {
       margin: EdgeInsets.only(left: leftMargin ?? 0 ,right: rightMargin ?? 0 ,top: topMargin ?? 0, bottom: bottomMargin ?? 20),
       constraints:  BoxConstraints.tight(const Size.fromHeight(40)),
       child: TextFormField(
+        controller: controller,
         textAlignVertical: TextAlignVertical.center,
         style: AppTextStyles.latoW600().copyWith(fontSize: 15),
         decoration:  InputDecoration(

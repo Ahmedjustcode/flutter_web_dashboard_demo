@@ -14,3 +14,24 @@ class  ProductViewModelGetProducts extends ProductViewModelEvent{
   @override
   List<Object?> get props => [skipProduct,showLoader];
 }
+
+class  ProductViewModelAddButtonTap extends ProductViewModelEvent{
+
+  final BuildContext context;
+
+  const ProductViewModelAddButtonTap({required this.context});
+
+  @override
+  List<Object?> get props => [context];
+}
+
+class  ProductViewModelCreateNewProductTap extends ProductViewModelEvent{
+
+  final BuildContext context;
+  final ProductEntity productEntity;
+
+  const ProductViewModelCreateNewProductTap({required this.context,required this.productEntity});
+
+  @override
+  List<Object?> get props => [context,productEntity];
+}

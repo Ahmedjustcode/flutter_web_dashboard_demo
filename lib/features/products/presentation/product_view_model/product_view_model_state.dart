@@ -26,13 +26,14 @@ class ProductLoadingState extends ProductViewModelState{
 class ProductListLoadedState extends ProductViewModelState{
 
   final List<Product> productList;
+  final List<ProductEntity> productDraftList;
   final bool isChangeList;
 
 
-  const ProductListLoadedState({required this.productList,this.isChangeList = true});
+  const ProductListLoadedState({required this.productList,this.isChangeList = true,required this.productDraftList});
 
   @override
-  List<Object> get props => [productList,isChangeList];
+  List<Object> get props => [productList,isChangeList,productDraftList];
 }
 
 class ProductPaginationLoadingState extends ProductViewModelState{

@@ -33,6 +33,15 @@ class AppStrings{
   static const alreadyAMember  = 'Already A Member ? ';
   static const createNewAccount  = 'Create new account';
   static const dontHaveAnAccount  = 'Don\'t have an account ?';
+  static const name  = 'Name';
+  static const description  = 'Description';
+  static const price  = 'Price';
+  static const discountPercentage  = 'Discount percentage';
+  static const rating  = 'Rating';
+  static const stock  = 'Stock';
+  static const brand  = 'Brand';
+  static const category  = 'Category';
+  static const addProduct  = 'Add product';
 
 
 

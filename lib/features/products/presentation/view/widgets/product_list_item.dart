@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_example/core/app_text_styles.dart';
+import 'package:flutter_web_example/features/products/domain/domain/product_entity/product_entity.dart';
 
 import '../../../../../core/app_colors.dart';
 import '../../../data/models/product_model.dart';
@@ -7,7 +8,7 @@ import '../../../data/models/product_model.dart';
 class ProductListItem extends StatelessWidget {
   const ProductListItem({super.key, required this.product});
 
-  final Product product;
+  final dynamic product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class ProductListItem extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 6 / 5,
-            child: Image.network(product.thumbnail!, fit: BoxFit.cover),
+            child: product is ProductEntity ? Image.memory(product.thumbnail! ,fit: BoxFit.cover):Image.network(product.thumbnail!, fit: BoxFit.cover),
           ),
           const SizedBox(height: 10),
           Text(

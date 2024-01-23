@@ -15,11 +15,11 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Responsive.isDesktop(context) ? null : const SafeArea(child: SideBar()),
+      drawer: Responsive.isDesktop(context) ? null :  SafeArea(child: SideBar()),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (Responsive.isDesktop(context)) const SideBar(),
+          if (Responsive.isDesktop(context))  SideBar(),
           Expanded(child: BlocBuilder<MainViewModelBloc, MainViewModelState>(
             builder: (context, state) {
               return IndexedStack(
